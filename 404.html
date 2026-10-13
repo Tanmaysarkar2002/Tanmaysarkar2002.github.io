@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Tanmay Sarkar — Detour to The Ride</title>
+  <meta name="description" content="Tanmay Sarkar, backend & infrastructure engineer (SDE III). This road leads to the hand-drawn motorbike ride at tanmaysarkar.dev.">
+  <link rel="canonical" href="https://tanmaysarkar.dev/">
+  <meta property="og:title" content="Tanmay Sarkar — The Ride">
+  <meta property="og:description" content="A hand-drawn motorbike ride through my journey as a backend & infrastructure engineer.">
+  <meta property="og:url" content="https://tanmaysarkar.dev/">
+  <meta name="theme-color" content="#f4f1ea">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="apple-touch-icon.png">
+  <noscript><meta http-equiv="refresh" content="8; url=https://tanmaysarkar.dev/"></noscript>
+  <style>
+    @font-face { font-family: "Cabin Sketch"; font-weight: 700; font-display: swap; src: url("fonts/cabin-sketch-latin-700-normal.woff2") format("woff2"); }
+    @font-face { font-family: "Patrick Hand"; font-display: swap; src: url("fonts/patrick-hand-latin-400-normal.woff2") format("woff2"); }
+    :root {
+      --ink: #1f1f24; --ink-soft: #55565f; --paper: #f4f1ea; --paper-2: #fbfaf6;
+      --accent: #ff6b35; --tape: rgba(120, 170, 255, .55); --sign: #ffd60a;
+      --hand: "Patrick Hand", "Comic Sans MS", cursive; --sketch: "Cabin Sketch", "Patrick Hand", cursive;
+    }
+    * { box-sizing: border-box; }
+    html, body { margin: 0; }
+    body {
+      min-height: 100vh; background: var(--paper); color: var(--ink); font: 20px/1.45 var(--hand);
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='240' height='240'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 .3  0 0 0 0 .28  0 0 0 0 .25  0 0 0 .22 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+    }
+    main { max-width: 1100px; margin: 0 auto; padding: 28px 16px 48px; overflow-x: clip; }
+    .hero { display: block; width: 100%; height: auto; border-radius: 12px; }
+    .row { display: grid; grid-template-columns: 1.4fr 1fr; gap: 28px; margin-top: 28px; align-items: start; }
+
+    .card {
+      position: relative; background: var(--paper-2); border: 2.6px solid var(--ink); border-radius: 6px;
+      padding: 26px 26px 22px; transform: rotate(-.8deg); box-shadow: 4px 5px 0 rgba(31, 31, 36, .12);
+    }
+    .card::before, .card::after {
+      content: ""; position: absolute; top: -12px; width: 84px; height: 26px; background: var(--tape);
+    }
+    .card::before { left: -18px; transform: rotate(-28deg); }
+    .card::after { right: -18px; transform: rotate(26deg); }
+    .eyebrow { margin: 0; color: var(--accent); font-size: 16px; letter-spacing: .08em; text-transform: uppercase; }
+    h1 { margin: 4px 0 8px; font: 700 clamp(30px, 5vw, 44px)/1.1 var(--sketch); }
+    p { margin: 0 0 12px; }
+    .countdown { color: var(--ink-soft); }
+    .countdown b { color: var(--accent); font-size: 1.2em; }
+
+    .cta { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .btn {
+      display: inline-block; padding: 8px 16px; border: 2.4px solid var(--ink); border-radius: 10px;
+      background: var(--paper-2); color: var(--ink); font: inherit; text-decoration: none; cursor: pointer;
+      box-shadow: 3px 3px 0 var(--ink); transition: transform .12s, box-shadow .12s;
+    }
+    .btn:hover, .btn:focus-visible { transform: translate(-1px, -1px); box-shadow: 4px 4px 0 var(--ink); }
+    .btn:active { transform: translate(2px, 2px); box-shadow: 1px 1px 0 var(--ink); }
+    .btn.primary { background: var(--accent); color: #fff; }
+    .stay { background: none; border: 0; padding: 0; margin-top: 14px; color: var(--ink-soft); font: inherit; font-size: 16px; text-decoration: underline; cursor: pointer; }
+
+    .sign { text-align: center; transform: rotate(1.5deg); }
+    .sign .board {
+      display: inline-block; background: var(--sign); border: 3px solid var(--ink); border-radius: 10px; padding: 8px;
+      box-shadow: 4px 5px 0 rgba(31, 31, 36, .15);
+    }
+    .sign .inner { border: 1.6px solid var(--ink); border-radius: 6px; padding: 12px 22px 8px; }
+    .sign .big { font: 700 34px/1 var(--sketch); letter-spacing: .04em; }
+    .sign .line { font-size: 21px; letter-spacing: .03em; }
+    .sign .tag { font-size: 12px; }
+    .sign .arrow { display: inline-block; animation: nudge 1s ease-in-out infinite alternate; }
+    .sign .post { width: 8px; height: 90px; margin: 0 auto; background: var(--ink); border-radius: 0 0 4px 4px; }
+    @keyframes nudge { to { transform: translateX(8px); } }
+
+    footer { margin-top: 36px; text-align: center; color: var(--ink-soft); font-size: 16px; }
+    a { color: inherit; }
+
+    @media (max-width: 760px) {
+      .row { grid-template-columns: 1fr; }
+      .sign { order: -1; }
+      .sign .post { height: 36px; }
+      .card::before { left: -6px; } .card::after { right: -6px; }
+    }
+    @media (prefers-reduced-motion: reduce) {
+      .sign .arrow { animation: none; }
+      .btn { transition: none; }
+    }
+  </style>
+</head>
+<body>
+  <main>
+    <a href="https://tanmaysarkar.dev/" aria-label="Go to tanmaysarkar.dev">
+      <img class="hero" src="assets/ride.svg" width="1200" height="380"
+           alt="Hey, I'm Tanmay: backend and infra engineer, riding a café racer past a 'Better Mr. Late than late Mr.' road sign">
+    </a>
+
+    <div class="row">
+      <section class="card" aria-labelledby="title">
+        <p class="eyebrow">you've taken the old road</p>
+        <h1 id="title">The ride moved to tanmaysarkar.dev</h1>
+        <p>This is where my portfolio used to live. The new one is a hand-drawn motorbike ride: kick-start the bike and scroll from Malda to Jaipur, with a detour to Ladakh and a chai at the end.</p>
+        <p class="countdown" id="countdown" aria-live="polite">Kick-starting in <b id="secs">8</b> seconds…</p>
+        <div class="cta">
+          <a class="btn primary" href="https://tanmaysarkar.dev/">Kick-start the ride →</a>
+          <a class="btn" href="https://github.com/Tanmaysarkar2002">GitHub</a>
+          <a class="btn" href="https://www.linkedin.com/in/tanmay-sarkar-716bb4156/">LinkedIn</a>
+          <a class="btn" href="mailto:tanmaysarkar959@gmail.com">Email</a>
+        </div>
+        <button class="stay" id="stay" type="button">Park here instead (stop the countdown)</button>
+      </section>
+
+      <div class="sign" aria-hidden="true">
+        <div class="board"><div class="inner">
+          <div class="big">DETOUR <span class="arrow">→</span></div>
+          <div class="line">TANMAYSARKAR.DEV</div>
+          <div class="line">SLOW DOWN, ENJOY THE RIDE</div>
+          <div class="tag">BRO</div>
+        </div></div>
+        <div class="post"></div>
+      </div>
+    </div>
+
+    <footer>Better Mr. Late than late Mr. · © Tanmay Sarkar</footer>
+  </main>
+
+  <script>
+    (function () {
+      var left = 8, secs = document.getElementById("secs"), msg = document.getElementById("countdown");
+      var timer = setInterval(function () {
+        left -= 1;
+        if (left <= 0) { clearInterval(timer); window.location.href = "https://tanmaysarkar.dev/"; return; }
+        secs.textContent = left;
+      }, 1000);
+      document.getElementById("stay").addEventListener("click", function () {
+        clearInterval(timer);
+        msg.textContent = "Parked. Take your time, the ride's one click away.";
+        this.hidden = true;
+      });
+    })();
+  </script>
+</body>
+</html>
